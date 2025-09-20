@@ -94,13 +94,13 @@ const UserManagement = () => {
   const paginatedUsers = dummyUsers.slice(start, end);
 
   return (
-    <div className="bg-white p-3 h-[87vh] overflow-auto ">
+    <div className="bg-white p-3  ">
       <div className="flex justify-between ">
         <Navigate title={"User Management"} />
         <Input
           placeholder="Search by name..."
           prefix={<SearchOutlined />}
-          style={{ marginBottom: "16px", maxWidth: "300px", height: "40px" }}
+          style={{  maxWidth: "300px", height: "40px" }}
         />
       </div>
 

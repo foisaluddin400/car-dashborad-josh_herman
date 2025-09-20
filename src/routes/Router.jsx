@@ -4,7 +4,7 @@ import Dashboard from "../components/Dashboard/Dashboard";
 import UserManagement from "../page/UserManagement/UserManagement";
 import CreatorManagement from "../page/CreatorManagement/CreatorManagement";
 
-import Subscription from "../page/Subscription/Subscription";
+
 
 import Profile from "../page/Settings/Profile";
 import TermsCondition from "../page/Settings/TermsCondition";
@@ -19,6 +19,12 @@ import ResetPass from "../Auth/ResetPass";
 import Notification from "../page/Notification/Notification";
 import About from "../page/Settings/About";
 import Login from "../Auth/Login";
+import VendorManagement from "../page/vendor/VendorManagement";
+import RoyalExoticCars from "../page/cars/RoyalExoticCars";
+import Banner from "../page/bannar/Banner";
+import Administrator from "../page/administrator/Administrator";
+import Booking from "../page/book/Booking";
+import HeplSupport from "../page/Settings/HeplSupport";
 
 
 export const router = createBrowserRouter([
@@ -38,9 +44,29 @@ export const router = createBrowserRouter([
         path: "/dashboard/UserManagement",
         element: <UserManagement></UserManagement>,
       },
+        {
+        path: "/dashboard/VendorManagement",
+        element: <VendorManagement></VendorManagement>,
+      },
       {
         path: "/dashboard/CreatorManagement",
         element: <CreatorManagement></CreatorManagement>,
+      },
+      {
+        path: "/dashboard/royalExoticCar",
+        element: <RoyalExoticCars></RoyalExoticCars>
+      },
+        {
+        path: "/dashboard/bannar",
+        element: <Banner></Banner>
+      },
+       {
+        path: "/dashboard/administrator",
+        element: <Administrator></Administrator>
+      },
+       {
+        path: "/dashboard/booked",
+        element: <Booking></Booking>
       },
       {
         path: "/dashboard/CategoriesManagement/Categories",
@@ -54,10 +80,7 @@ export const router = createBrowserRouter([
         path: "/dashboard/CategoriesManagement/Subcategory",
         element: <Subcategory></Subcategory>,
       },
-      {
-        path: "/dashboard/Subscription",
-        element: <Subscription></Subscription>,
-      },
+   
       {
         path: "/dashboard/Settings/profile",
         element: <Profile></Profile>,
@@ -65,6 +88,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/Settings/profile",
         element: <Profile></Profile>,
+      },
+       {
+        path: "/dashboard/Settings/helpSupport",
+        element: <HeplSupport></HeplSupport>
       },
       {
         path: "/dashboard/Settings/notification",

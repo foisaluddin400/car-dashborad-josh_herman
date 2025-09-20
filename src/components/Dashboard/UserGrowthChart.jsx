@@ -57,9 +57,6 @@ const UserGrowthChart = () => {
       style={{
         width: "100%",
         height: "100%",
-    
-
-       
       }}
     >
       <div className="flex justify-between items-center">
@@ -119,6 +116,15 @@ const UserGrowthChart = () => {
             cursor={{ fill: "#edc4c52d" }}
           />
           <Legend wrapperStyle={{ fontSize: "13px", fontWeight: "bold" }} />
+          <defs>
+            <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+           
+              <stop offset="5%" stopColor="#D7B473" stopOpacity={0.9} />
+          
+              <stop offset="95%" stopColor="white" stopOpacity={0.7} />
+            </linearGradient>
+          </defs>
+
           <Bar
             dataKey="totalUser"
             fill="url(#colorValue)"

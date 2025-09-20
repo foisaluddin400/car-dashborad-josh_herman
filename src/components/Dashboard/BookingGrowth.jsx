@@ -72,8 +72,8 @@ const BookingGrowth = () => {
     <div className="">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
-        <p className="text-xl font-semibold text-gray-800">
-          Total Earnings
+        <p className="text-lg font-semibold text-gray-800">
+          Booking Growth
         </p>
 
         <Select
@@ -106,7 +106,7 @@ const BookingGrowth = () => {
             <Area
               type="monotone"
               dataKey="value"
-              stroke="#E63946"
+              stroke="white"
               fillOpacity={1}
               fill="url(#colorValue)"
             />

@@ -6,99 +6,30 @@ import { FaBars } from "react-icons/fa";
 import { useRef, useState } from "react";
 import { Drawer, Radio, Space } from "antd";
 
-import dashboard from "../../assets/routerImg/dashboard.png";
-import categorie from "../../assets/routerImg/categorie.png";
-import create from "../../assets/routerImg/create.png";
-import settings from "../../assets/routerImg/settings.png";
-import subscription from "../../assets/routerImg/subscription.png";
-import user from "../../assets/routerImg/user.png";
+import { LiaUsersCogSolid } from "react-icons/lia";
+
 import logo from "../../assets/header/logo.png";
-
-import { FaChevronRight } from "react-icons/fa";
-
+import { FiUser } from "react-icons/fi";
+import { IoSettingsOutline } from "react-icons/io5";
+import { TbCategory2 } from "react-icons/tb";
+import { FaChevronRight, FaHome } from "react-icons/fa";
+import items from "../item.json";
 import { IoIosLogIn } from "react-icons/io";
+const icons = {
+  FaHome,
+  FiUser,
+  LiaUsersCogSolid,
+  TbCategory2,
+  IoSettingsOutline,
+};
 
-const items = [
-  {
-    key: "dashboard",
-    label: "Dashboard",
-    icon: dashboard,
-    link: "/",
-  },
-  {
-    key: "userManagement",
-    label: "User Management",
-    icon: user,
-    link: "/dashboard/UserManagement",
-  },
-  {
-    key: "creatorManagement",
-    label: "Creator Management",
-    icon: create,
-    link: "/dashboard/CreatorManagement",
-  },
-  {
-    key: "categoriesManagement",
-    label: "Categories Management",
-    icon: categorie,
-    link: "/dashboard/CategoriesManagement/Categories",
-    children: [
-      {
-        key: "categoriesManagement",
-        label: "Categories",
-        link: "/dashboard/CategoriesManagement/Categories",
-      },
-      {
-        key: "subcategory",
-        label: "Subcategory",
-        link: "/dashboard/CategoriesManagement/Subcategory",
-      },
-    ],
-  },
-  {
-    key: "subscription",
-    label: "Subscription",
-    icon: subscription,
-    link: "/dashboard/Subscription",
-  },
-  {
-    key: "profile",
-    label: "Settings",
-    icon: settings,
-    link: "/dashboard/Settings/profile",
-    children: [
-      {
-        key: "profile",
-        label: "Profile",
-        link: "/dashboard/Settings/profile",
-      },
-      {
-        key: "terms",
-        label: "Terms & Condition",
-        link: "/dashboard/Settings/Terms&Condition",
-      },
-      {
-        key: "privacy",
-        label: "Privacy Policy",
-        link: "/dashboard/Settings/PrivacyPolicy",
-      },
-      {
-        key: "faq",
-        label: "FAQ",
-        link: "/dashboard/Settings/FAQ",
-      },
-    ],
-  },
-];
 
 const Header = () => {
   const [selectedKey, setSelectedKey] = useState("dashboard");
   const [expandedKeys, setExpandedKeys] = useState([]);
   const navigate = useNavigate();
- 
 
   const contentRef = useRef({});
-  
 
   const onParentClick = (key) => {
     setExpandedKeys((prev) =>
@@ -126,7 +57,7 @@ const Header = () => {
     navigate("/login");
   };
   return (
-    <div className="bg-white text-white pt-5">
+    <div className="bg-white text-black pt-5">
       <div className="flex justify-between">
         <div className="lg:hidden ">
           <div className="py-3 pl-4">
@@ -162,85 +93,86 @@ const Header = () => {
                 </div>
 
                 <div className="menu-items">
-                {items.map((item) => (
-                    <div key={item.key}>
-                      <Link
-                        to={item.link}
-                        className={`menu-item my-4 mx-5 py-3 px-3 flex items-center cursor-pointer ${
-                          selectedKey === item.key
-                            ? "bg-[#EDC4C5] rounded-md"
-                            : "bg-white rounded-md hover:bg-gray-200"
-                        }`}
-                        onClick={(e) => {
-                          if (item.children) {
-                            e.preventDefault(); 
-                            onParentClick(item.key); 
-                          } else {
-                            setSelectedKey(item.key);
-                            onClose(); 
-                          }
-                        }}
-                      >
-                        <img
-                          src={item.icon}
-                          alt={item.label}
-                          className="w-5 h-5 mr-3"
-                        />
-                        <span className="block w-full text-black">
-                          {item.label}
-                        </span>
-
-                        
-                        {item.children && (
-                          <FaChevronRight
-                            className={`ml-auto transform transition-all duration-300 ${
-                              expandedKeys.includes(item.key) ? "rotate-90" : ""
-                            }`}
-                          />
-                        )}
-                      </Link>
-
-                      {item.children && (
-                        <div
-                          className={`children-menu bg-white  -my-2 mx-5  text-black transition-all duration-300 ${
-                            expandedKeys.includes(item.key) ? "expanded" : ""
+                  {items.map((item) => {
+                    const Icon = icons[item.icon];
+                    return (
+                      <div key={item.key}>
+                        <Link
+                          to={item.link}
+                          className={`menu-item my-4 mx-5 py-3 px-3 flex items-center cursor-pointer ${
+                            selectedKey === item.key
+                              ? "bg-[#EDC4C5] rounded-md"
+                              : "bg-white rounded-md hover:bg-gray-200"
                           }`}
-                          style={{
-                            maxHeight: expandedKeys.includes(item.key)
-                              ? `${
-                                  contentRef.current[item.key]?.scrollHeight
-                                }px`
-                              : "0",
+                          onClick={(e) => {
+                            if (item.children) {
+                              e.preventDefault();
+                              onParentClick(item.key);
+                            } else {
+                              setSelectedKey(item.key);
+                              onClose();
+                            }
                           }}
-                          ref={(el) => (contentRef.current[item.key] = el)}
                         >
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.key}
-                              to={child.link}
-                              className={`menu-item p-4  flex items-center cursor-pointer ${
-                                selectedKey === child.key
-                                  ? "bg-[#EDC4C5]"
-                                  : "hover:bg-gray-200"
+                          <h1 className="w-5 mr-2">
+                            <Icon />
+                          </h1>
+                          <span className="block w-full text-black">
+                            {item.label}
+                          </span>
+
+                          {item.children && (
+                            <FaChevronRight
+                              className={`ml-auto transform transition-all duration-300 ${
+                                expandedKeys.includes(item.key)
+                                  ? "rotate-90"
+                                  : ""
                               }`}
-                              onClick={() => {
-                                setSelectedKey(child.key); 
-                                setExpandedKeys([]); // Collapse all expanded items
-                                onClose(); // Close the drawer navigation
-                              }}
-                            >
-                              <span className="block w-full text-black">
-                                {child.label}
-                              </span>
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                            />
+                          )}
+                        </Link>
+
+                        {item.children && (
+                          <div
+                            className={`children-menu bg-white  -my-2 mx-5  text-black transition-all duration-300 ${
+                              expandedKeys.includes(item.key) ? "expanded" : ""
+                            }`}
+                            style={{
+                              maxHeight: expandedKeys.includes(item.key)
+                                ? `${
+                                    contentRef.current[item.key]?.scrollHeight
+                                  }px`
+                                : "0",
+                            }}
+                            ref={(el) => (contentRef.current[item.key] = el)}
+                          >
+                            {item.children.map((child) => (
+                              <Link
+                                key={child.key}
+                                to={child.link}
+                                className={`menu-item p-4  flex items-center cursor-pointer ${
+                                  selectedKey === child.key
+                                    ? "bg-[#EDC4C5]"
+                                    : "hover:bg-gray-200"
+                                }`}
+                                onClick={() => {
+                                  setSelectedKey(child.key);
+                                  setExpandedKeys([]); // Collapse all expanded items
+                                  onClose(); // Close the drawer navigation
+                                }}
+                              >
+                                <span className="block w-full text-black">
+                                  {child.label}
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
 
-               
                 <div className="custom-sidebar-footer absolute bottom-0 w-full p-4 ">
                   <button
                     onClick={handleLogout}
@@ -270,7 +202,7 @@ const Header = () => {
                 />
               </div>
               <div className="text-end">
-                <h3>{ "Loading..."}</h3>
+                <h3>{"Loading..."}</h3>
                 <h4 className="text-sm">Admin</h4>
               </div>
             </div>

@@ -1,0 +1,83 @@
+[
+  {
+    "key": "dashboard",
+    "label": "Dashboard",
+    "icon": "FaHome",
+    "link": "/"
+  },
+  {
+    "key": "userManagement",
+    "label": "User Management",
+    "icon": "FiUser",
+    "link": "/dashboard/UserManagement"
+  },
+  {
+    "key": "vendorManagement",
+    "label": "Vendor Management",
+    "icon": "LiaUsersCogSolid",
+    "link": "/dashboard/VendorManagement"
+  },
+  {
+    "key": "royalExoticCar",
+    "label": "Add Royal",
+    "icon": "GiCarrion",
+    "link": "/dashboard/royalExoticCar"
+  },
+     {
+    "key": "booking",
+    "label": "Booked",
+    "icon": "BsJournalBookmark",
+    "link": "/dashboard/booked"
+  },
+    {
+    "key": "administrator",
+    "label": "Administrator",
+    "icon": "MdOutlineAdminPanelSettings",
+    "link": "/dashboard/administrator"
+  },
+  {
+    "key": "bannar",
+    "label": "Bannar",
+    "icon": "GiKnightBanner",
+    "link": "/dashboard/bannar"
+  },
+
+  {
+    "key": "settings",
+    "label": "Settings",
+    "icon": "IoSettingsOutline",
+    "link": "/dashboard/Settings/profile",
+    "children": [
+      {
+        "key": "profile",
+        "label": "Profile",
+        "link": "/dashboard/Settings/profile"
+      },
+      {
+        "key": "terms",
+        "label": "Terms & Condition",
+        "link": "/dashboard/Settings/Terms&Condition"
+      },
+      {
+        "key": "privacy",
+        "label": "Privacy Policy",
+        "link": "/dashboard/Settings/PrivacyPolicy"
+      },
+      {
+        "key": "faq",
+        "label": "FAQ",
+        "link": "/dashboard/Settings/FAQ"
+      },
+      {
+        "key": "about",
+        "label": "About Us",
+        "link": "/dashboard/Settings/aboutUs"
+      },
+      {
+        "key": "HeplSupport",
+        "label": "Helps Support",
+        "link": "/dashboard/Settings/helpSupport"
+      }
+    ]
+  }
+]

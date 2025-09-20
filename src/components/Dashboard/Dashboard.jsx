@@ -11,8 +11,8 @@ const Dashboard = () => {
     <div className=" ">
       <div className="grid grid-cols-4 gap-4">
         <div className="flex gap-4 items-center bg-white p-6 rounded shadow">
-          <div className="bg-red-100 w-[55px] rounded-full h-[55px] flex justify-center items-center text-3xl">
-            <HiOutlineUserGroup className="text-red-500" />
+          <div className="bg-yellow-100 w-[55px] rounded-full h-[55px] flex justify-center items-center text-3xl">
+            <HiOutlineUserGroup className="text-yellow-500" />
           </div>
           <div>
             <h1 className="font-semibold text-2xl">1,100</h1>
@@ -34,7 +34,7 @@ const Dashboard = () => {
           </div>
           <div>
             <h1 className="font-semibold text-2xl">1,100</h1>
-            <h1 className="text-zinc-500"> Total Subscriber</h1>
+            <h1 className="text-zinc-500"> Total Booking</h1>
           </div>
         </div>
         <div className="flex gap-4 items-center bg-white p-6 rounded shadow">
