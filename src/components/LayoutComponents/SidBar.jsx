@@ -26,7 +26,18 @@ const icons = {
   TbCategory2,
   IoSettingsOutline,
 };
-
+  // {
+  //   "key": "vendorManagement",
+  //   "label": "Vendor Management",
+  //   "icon": "LiaUsersCogSolid",
+  //   "link": "/dashboard/VendorManagement"
+  // },
+  //    {
+  //   "key": "administrator",
+  //   "label": "Administrator",
+  //   "icon": "MdOutlineAdminPanelSettings",
+  //   "link": "/dashboard/administrator"
+  // },
 
 const SidBar = () => {
   const [selectedKey, setSelectedKey] = useState("dashboard");

@@ -11,12 +11,7 @@
     "icon": "FiUser",
     "link": "/dashboard/UserManagement"
   },
-  {
-    "key": "vendorManagement",
-    "label": "Vendor Management",
-    "icon": "LiaUsersCogSolid",
-    "link": "/dashboard/VendorManagement"
-  },
+
   {
     "key": "royalExoticCar",
     "label": "Add Royal",
@@ -29,12 +24,7 @@
     "icon": "BsJournalBookmark",
     "link": "/dashboard/booked"
   },
-    {
-    "key": "administrator",
-    "label": "Administrator",
-    "icon": "MdOutlineAdminPanelSettings",
-    "link": "/dashboard/administrator"
-  },
+ 
   {
     "key": "bannar",
     "label": "Bannar",
